@@ -1,0 +1,43 @@
+[project]
+name = "selfcookie"
+version = "0.1.0"
+description = "Simple Python Cookiecutter generator"
+authors = [
+    {name = "João Pinto", email = "lamego.pinto@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+
+[tool.pdm.scripts]
+commit = 'git commit -a -m "{args}"'
+test = "pytest tests"
+lint = "echo pre-commit run --all-files"
+doc = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview"}
+
+# Dependencies below MUST be managed using:
+#  pdm add -dG group_name package_name, eg:
+#  pdm add -dG  test pytest
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pdm[pytest]",
+    "pytest-cov",
+    "pytest>=7.4.0",
+]
+lint = [
+    "pre-commit>=3.3.3",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
