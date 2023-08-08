@@ -29,9 +29,8 @@ Python 3.11+
 pip install selfcookie
 ```
 
-## After installing
+## How to use
 
-# Add your extra development dependencies
 ```sh
-pdm add -dG <group-name> <package-name>
+selfcookie package-name
 ```

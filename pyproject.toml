@@ -1,11 +1,13 @@
 [project]
 name = "selfcookie"
 version = "0.1.0"
-description = "Simple Python Cookiecutter generator"
+description = "Simple Python Cookiecutter Generator"
 authors = [
     {name = "João Pinto", email = "lamego.pinto@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "typer>=0.9.0",
+]
 requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
@@ -16,8 +18,9 @@ build-backend = "pdm.backend"
 
 
 [tool.pdm.scripts]
+selfcookie = "python -m selfcookie"
 commit = 'git commit -a -m "{args}"'
-test = "pytest tests"
+test = "pytest --cov=selfcookie --cov-report=term-missing"
 lint = "echo pre-commit run --all-files"
 doc = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview"}
 
@@ -41,3 +44,11 @@ target-version = ["py311"]
 
 [tool.isort]
 profile = "black"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+omit = [
+    "selfcookie/__main__.py",
+]
