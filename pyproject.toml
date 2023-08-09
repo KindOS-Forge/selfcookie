@@ -22,7 +22,7 @@ build-backend = "pdm.backend"
 # git related
 push = "git push"
 commit = {shell = 'git commit -a -m "{args}" && git push'}
-tag = {shell = 'git tag "{args}" && git push --tags'}
+tag = {shell = 'git tag {args} && git push --tags'}
 amend = "git commit --amend"
 status = "git status"
 
