@@ -9,11 +9,7 @@ jobs:
       contents: write # Needed to create a release
     steps:
       - uses: actions/checkout@v3
-
-      - name: Get history and tags for SCM versioning to work
-        run: |
-          git fetch --prune --unshallow
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
+        fetch-depth: 0 # Needed to get all tags for the SCM version setup
 
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v3
