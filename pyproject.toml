@@ -1,5 +1,5 @@
 [project]
-version = "0.1.7"
+version = "0.1.8"
 name = "selfcookie"
 description = "Simple Python Cookiecutter Generator"
 authors = [
@@ -29,15 +29,14 @@ version = "python -m release.version"
 
 selfcookie = "python -m selfcookie"
 
-test = "pytest --cov=selfcookie --cov=release --cov-report=term-missing"
+test = "pytest --cov=selfcookie --cov-report=term-missing"
 # linting
 lint = "pre-commit run --all-files"
 
 
 # release
 build = "pdm build"
-update-changelog = "python -m release.changelog"
-release=  {composite = ["build", "test", "lint", "update-changelog"]}
+release=  {composite = ["build", "test", "lint"]}
 
 
 # docs generation
@@ -69,7 +68,6 @@ profile = "black"
 
 [tool.pytest.ini_options]
 testpaths = [
-    "release",
     "tests"
 ]
 
