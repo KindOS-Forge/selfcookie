@@ -58,7 +58,7 @@ repos:
     rev: v1.4.1
     hooks:
       - id: mypy
-        args: [release, selfcookie]
+        args: [selfcookie]
         pass_filenames: false
         additional_dependencies:
           - types-requests

@@ -3,9 +3,19 @@
 Get the latest git tag or commit hash
 """
 import datetime
+import tomllib
 
 from jinja2 import Environment, FileSystemLoader
-from setuptools_scm import get_version
+
+
+def get_version() -> str:
+    # Load the pyproject.toml content
+    with open("pyproject.toml", "rb") as f:
+        data = tomllib.load(f)
+
+    # Fetch the version (assuming it's defined under [project])
+    version = data.get("project", {}).get("version", None)
+    return version
 
 
 def render_template(template_name: str, variables: dict = {}, template_dir: str = "templates") -> str:

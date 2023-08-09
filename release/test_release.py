@@ -1,5 +1,5 @@
 from release import update_changelog
 
 
-def test_release() -> None:
+def test_release():
     update_changelog()

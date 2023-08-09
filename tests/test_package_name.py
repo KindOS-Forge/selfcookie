@@ -1,6 +1,6 @@
 import uuid
 
-from selfcookie.__main__ import is_available_on_pypi, is_valid_package_name
+from selfcookie.package import is_available_on_pypi, is_valid_package_name
 
 
 def test_is_valid_package_name():
