@@ -9,7 +9,8 @@ jobs:
       contents: write # Needed to create a release
     steps:
       - uses: actions/checkout@v3
-        fetch-depth: 0 # Needed to get all tags for the SCM version setup
+        with:
+          fetch-depth: 0 # Needed to get all tags for the SCM version setup
 
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v3
