@@ -29,10 +29,6 @@ jobs:
           pdm lint
           pdm test
 
-      - name: Build before sending to release
-        run: |
-          pdm build
-
       - name: Prepare for release
         run: |
           pdm release
