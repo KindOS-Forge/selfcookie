@@ -5,7 +5,8 @@ Get the latest git tag or commit hash
 import datetime
 
 from jinja2 import Environment, FileSystemLoader
-from version import get_version
+
+from .version import get_version
 
 
 def render_template(template_name: str, variables: dict = {}, template_dir: str = "templates") -> str:
