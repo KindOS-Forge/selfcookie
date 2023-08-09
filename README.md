@@ -13,11 +13,10 @@ selfcookie is a simple Python Cookiecutter generator. It is a tool that helps yo
 
 - Package management with [pdm](https://pdm.fming.dev)
 
-- Code linting with
-    - Triggered with pre-commit
+- Code linting triggered on pre-commit:
+    - [Codespell](https://github.com/codespell-project/codespell)
     - Code formatting with [black](https://github.com/psf/black)
     - [ruff](https://beta.ruff.rs/docs/)
-    - [Codespell](https://github.com/codespell-project/codespell)
 
 
 ## Installation

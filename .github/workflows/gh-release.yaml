@@ -1,4 +1,4 @@
-name: Publish GitHub release
+name: Publish GitHub Release
 on: [push]
 
 jobs:
@@ -15,6 +15,11 @@ jobs:
       - name: Install dependencies
         run: |
           pdm sync
+
+      - name: Run linting and test
+        run: |
+          pdm lint
+          pdm test
 
       - name: Build before sending to release
         run: |
