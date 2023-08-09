@@ -1,0 +1,10 @@
+{
+	"recommendations": [
+		"samuelcolvin.jinjahtml",
+		"ms-python.black-formatter",
+		"tamasfe.even-better-toml",
+		"GitHub.copilot",
+		"charliermarsh.ruff",
+		"ms-python.python"
+	]
+}
