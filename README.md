@@ -1,5 +1,5 @@
 <div align="center">
-A simple Python Cookiecutter  generator.
+A simple Python Cookiecutter Generator.
 
 [![PyPI](https://img.shields.io/pypi/v/selfcookie?logo=python&logoColor=%23cccccc)](https://pypi.org/project/selfcookie)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm.fming.dev)
