@@ -21,8 +21,9 @@ build-backend = "pdm.backend"
 
 # git related
 push = "git push"
-commit = 'git commit -a -m "{args}"'
-commit_and_push = {composite = ["commit", "push"]}
+commit = {shell = 'git commit -a -m "{args} && git push'}
+
+#commit = 'git commit -a -m "{args}"'
 status = "git status"
 
 release = "python -m release"
