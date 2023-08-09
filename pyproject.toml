@@ -53,8 +53,7 @@ lint = [
     "mypy>=1.4.1",
 ]
 release = [
-    "jinja2>=3.1.2",
-    "setuptools-scm>=7.1.0",
+    "jinja2>=3.1.2"
 ]
 
 [tool.black]
@@ -72,14 +71,8 @@ testpaths = [
 [tool.coverage.run]
 omit = [
     "selfcookie/__main__.py",
-    "selfcookie/__main__.py",
-    "release/__main__.py",
 ]
 
 [tool.mypy]
 disallow_untyped_defs = true
 ignore_missing_imports = true
-
-
-[tool.setuptools_scm]
-write_to = "selfcookie/version.py"
