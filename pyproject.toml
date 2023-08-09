@@ -1,5 +1,5 @@
 [project]
-version = "0.1.5"
+version = "0.1.7"
 name = "selfcookie"
 description = "Simple Python Cookiecutter Generator"
 authors = [
@@ -32,9 +32,12 @@ selfcookie = "python -m selfcookie"
 test = "pytest --cov=selfcookie --cov=release --cov-report=term-missing"
 # linting
 lint = "pre-commit run --all-files"
+
+
+# release
 build = "pdm build"
-pre-release =  {composite = ["build", "test", "lint"]}
-release = {composite = ["pre-release", "tag"]}
+update-changelog = "python -m release.changelog"
+release=  {composite = ["build", "test", "lint", "update-changelog"]}
 
 
 # docs generation
