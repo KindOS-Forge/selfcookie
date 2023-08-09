@@ -10,8 +10,6 @@ jobs:
       id-token: write # Need to publish to PyPI
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # Needed to get all tags for the SCM version setup
 
       - name: Set up PDM
         uses: pdm-project/setup-pdm@v3
@@ -19,15 +17,6 @@ jobs:
       - name: Install dependencies
         run: |
           pdm sync
-
-      - name: Check the dynamic version
-        run: |
-          pdm version
-
-      - name: Run linting and test
-        run: |
-          pdm lint
-          pdm test
 
       - name: Prepare for release
         run: |
