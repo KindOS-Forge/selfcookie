@@ -8,7 +8,6 @@ repos:
       -   id: mixed-line-ending
           args: ['--fix=lf']
           description: Forces to replace line ending by the UNIX 'lf' character.
-      - id: name-tests-test
       - id: trailing-whitespace
       - id: check-merge-conflict
       - id: check-case-conflict

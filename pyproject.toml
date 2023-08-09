@@ -18,9 +18,15 @@ build-backend = "pdm.backend"
 
 
 [tool.pdm.scripts]
-selfcookie = "python -m selfcookie"
+
+# git related
 commit = 'git commit -a -m "{args}"'
-test = "pytest --cov=selfcookie --cov-report=term-missing"
+status = "git status"
+
+release = "python -m release"
+selfcookie = "python -m selfcookie"
+
+test = "pytest --cov=selfcookie --cov=release --cov-report=term-missing"
 lint = "echo pre-commit run --all-files"
 doc = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview"}
 
@@ -37,6 +43,13 @@ test = [
 lint = [
     "pre-commit>=3.3.3",
 ]
+release = [
+    "jinja2>=3.1.2",
+]
+
+
+[tool.ruff]
+line-length = 120
 
 [tool.black]
 line-length = 120
@@ -46,9 +59,13 @@ target-version = ["py311"]
 profile = "black"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = [
+    "release",
+    "tests"
+]
 
 [tool.coverage.run]
 omit = [
     "selfcookie/__main__.py",
+    "release/__main__.py",
 ]
