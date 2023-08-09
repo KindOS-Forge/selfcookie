@@ -18,7 +18,6 @@ repos:
       - id: debug-statements
       - id: check-docstring-first
       - id: check-added-large-files
-      - id: check-byte-order-marker
       - id: check-executables-have-shebangs
       - id: check-xml
       - id: check-yaml
@@ -60,7 +59,3 @@ repos:
       - id: mypy
         args: [selfcookie]
         pass_filenames: false
-        additional_dependencies:
-          - types-requests
-          - types-certifi
-          - pytest
