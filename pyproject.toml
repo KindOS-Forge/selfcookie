@@ -25,6 +25,7 @@ commit = {shell = 'git commit -a -m "{args}" && git push'}
 tag = {shell = 'git tag {args} && git push --tags'}
 amend = "git commit --amend"
 status = "git status"
+version = "python -m release.version"
 
 selfcookie = "python -m selfcookie"
 
@@ -32,7 +33,8 @@ test = "pytest --cov=selfcookie --cov=release --cov-report=term-missing"
 # linting
 lint = "pre-commit run --all-files"
 build = "pdm build"
-release =  {composite = ["build", "test", "lint"]}
+pre-release =  {composite = ["build", "test", "lint"]}
+release = {composite = ["pre-release", "tag"]}
 
 
 # docs generation
