@@ -5,6 +5,7 @@
 		"tamasfe.even-better-toml",
 		"GitHub.copilot",
 		"charliermarsh.ruff",
-		"ms-python.python"
+		"ms-python.python",
+		"oderwat.indent-rainbow"
 	]
 }

@@ -19,5 +19,7 @@
     "[yaml]": {
         "editor.tabSize": 4,
         "editor.insertSpaces": false
-    }
+    },
+    "editor.mouseWheelZoom": true,
+    "editor.minimap.enabled": false
 }

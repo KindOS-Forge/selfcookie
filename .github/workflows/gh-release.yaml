@@ -16,6 +16,10 @@ jobs:
         run: |
           pdm sync
 
+      - name: Check the dynamic version
+        run: |
+          pdm version
+
       - name: Run linting and test
         run: |
           pdm lint
