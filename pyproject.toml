@@ -1,6 +1,6 @@
 [project]
+version = "0.1.1"
 name = "selfcookie"
-version = "0.1.0"
 description = "Simple Python Cookiecutter Generator"
 authors = [
     {name = "João Pinto", email = "lamego.pinto@gmail.com"},
