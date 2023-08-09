@@ -1,5 +1,6 @@
 import typer
-from package import is_available_on_pypi, is_valid_package_name
+
+from .package import is_available_on_pypi, is_valid_package_name
 
 
 def main(package_name: str) -> None:

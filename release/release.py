@@ -8,7 +8,7 @@ import subprocess
 from jinja2 import Environment, FileSystemLoader
 
 
-def render_template(template_name, variables={}, template_dir="templates"):
+def render_template(template_name: str, variables: dict = {}, template_dir: str = "templates") -> str:
     # Load the templates from the template directory
     env = Environment(loader=FileSystemLoader(template_dir))
 
@@ -20,7 +20,7 @@ def render_template(template_name, variables={}, template_dir="templates"):
     return rendered_output
 
 
-def update_changelog():
+def update_changelog() -> None:
     latest_commit = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], text=True).strip()
 
     try:

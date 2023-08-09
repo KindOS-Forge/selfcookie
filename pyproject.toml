@@ -29,7 +29,12 @@ release = "python -m release"
 selfcookie = "python -m selfcookie"
 
 test = "pytest --cov=selfcookie --cov=release --cov-report=term-missing"
-lint = "echo pre-commit run --all-files"
+
+# linting
+lint = "pre-commit run --all-files"
+mypy = "mypy selfcookie release"
+
+# docs generation
 doc = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview"}
 
 # Dependencies below MUST be managed using:
@@ -44,11 +49,11 @@ test = [
 ]
 lint = [
     "pre-commit>=3.3.3",
+    "mypy>=1.4.1",
 ]
 release = [
     "jinja2>=3.1.2",
 ]
-
 
 [tool.black]
 line-length = 120
@@ -68,3 +73,8 @@ omit = [
     "selfcookie/__main__.py",
     "release/__main__.py",
 ]
+
+[tool.mypy]
+exclude = [ 'release/__main__.py' ]  # avoid  Duplicate module named "__main__" (also at "selfcookie\__main__.py")
+disallow_untyped_defs = true
+ignore_missing_imports = true
