@@ -25,7 +25,7 @@ commit = {shell = 'git commit -a -m "{args}" && git push'}
 tag = {shell = 'git tag {args} && git push --tags'}
 amend = "git commit --amend"
 status = "git status"
-version = "python -m release.version"
+version = "python -c \"import tomllib; f=open('pyproject.toml', 'rb'); print(tomllib.load(f)['project']['version'])\""
 
 selfcookie = "python -m selfcookie"
 
