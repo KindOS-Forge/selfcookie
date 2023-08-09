@@ -1,6 +1,5 @@
 [project]
 name = "selfcookie"
-version = "0.1.0"
 description = "Simple Python Cookiecutter Generator"
 authors = [
     {name = "João Pinto", email = "lamego.pinto@gmail.com"},
@@ -11,6 +10,7 @@ dependencies = [
 requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
+dynamic = ["version"]
 
 [build-system]
 requires = ["pdm-backend"]
@@ -25,6 +25,8 @@ commit = {shell = 'git commit -a -m "{args}" && git push'}
 amend = "git commit --amend"
 status = "git status"
 
+
+version = "python -m setuptools_scm"
 release = "python -m release"
 selfcookie = "python -m selfcookie"
 
@@ -53,11 +55,11 @@ lint = [
 ]
 release = [
     "jinja2>=3.1.2",
+    "setuptools-scm>=7.1.0",
 ]
 
 [tool.black]
 line-length = 120
-target-version = ["py311"]
 
 [tool.isort]
 profile = "black"
@@ -71,6 +73,7 @@ testpaths = [
 [tool.coverage.run]
 omit = [
     "selfcookie/__main__.py",
+    "selfcookie/__main__.py",
     "release/__main__.py",
 ]
 
@@ -78,3 +81,6 @@ omit = [
 exclude = [ 'release/__main__.py' ]  # avoid  Duplicate module named "__main__" (also at "selfcookie\__main__.py")
 disallow_untyped_defs = true
 ignore_missing_imports = true
+
+[tool.setuptools_scm]
+write_to = "selfcookie/version.py"

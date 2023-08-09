@@ -3,7 +3,6 @@
 Get the latest git tag or commit hash
 """
 import datetime
-import subprocess
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -21,18 +20,6 @@ def render_template(template_name: str, variables: dict = {}, template_dir: str 
 
 
 def update_changelog() -> None:
-    latest_commit = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], text=True).strip()
-
-    try:
-        latest_tag = subprocess.check_output(
-            ["git", "describe", "--tags", "--abbrev=0", latest_commit],
-            stderr=subprocess.DEVNULL,
-            text=True,
-        ).strip()
-    except subprocess.CalledProcessError:
-        latest_tag = None
-
-    version = latest_commit or latest_tag
     date = datetime.datetime.now().strftime("%Y-%m-%d")
 
     # Generate CHANGELOG.md from CHANGELOG.tpl.md
