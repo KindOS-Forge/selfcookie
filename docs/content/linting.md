@@ -28,6 +28,7 @@ In order to prevent from quality issues in the code we use the following tools:
 
 
 The following checks are also performed:
+
 | ID                            | Description                                                                                     |
 |-------------------------------|-------------------------------------------------------------------------------------------------|
 | check-added-large-files        | Checks for large added files in a repository.                                                  |
