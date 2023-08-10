@@ -11,8 +11,7 @@
         ".pytest_cache": true,
         ".coverage": true,
         "selfcookie/version.py": true,
-        ".pdm-python": true,
-        ".venv": true
+        ".pdm-python": true
     },
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
