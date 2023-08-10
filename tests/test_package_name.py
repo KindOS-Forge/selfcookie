@@ -1,5 +1,7 @@
 import uuid
+
 from selfcookie.package import is_available_on_pypi, is_valid_package_name
+
 
 def test_is_valid_package_name():
     assert is_valid_package_name("selfcookie") is True
