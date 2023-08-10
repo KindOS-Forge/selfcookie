@@ -6,7 +6,7 @@ selfcookie is a tool that helps you create and maintain Python using templates.
 ## Which capabilities does it provide?
 
 - Project management automation using [pdm](https://pdm.fming.dev/).
-- Compreenshive [linting](linting.md) and [testing](testing.md) support.
+- Compreenshive [Linting](linting) and [testing](testing) support.
 
 - Docs generation using [mkdocs](https://www.mkdocs.org/).
 
