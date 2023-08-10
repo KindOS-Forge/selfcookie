@@ -28,7 +28,6 @@ status = "git status"
 version = "python -c \"import tomllib; f=open('pyproject.toml', 'rb'); print(tomllib.load(f)['project']['version'])\""
 
 selfcookie = "python -m selfcookie"
-
 test = "pytest --cov=selfcookie --cov-report=term-missing"
 # linting
 lint = "pre-commit run --all-files"
