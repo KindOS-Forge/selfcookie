@@ -1,5 +1,5 @@
 # Project information
-site_name: Site
+site_name: KindOS selfcookie
 repo_url: https://github.com/KindOS-Forge/kindos-forge.github.io
 docs_dir: content
 
@@ -31,4 +31,4 @@ markdown_extensions:
     - pymdownx.superfences
 
 
-copyright:  Copyright © Contributors to the The KindOS Workspace
+copyright:  Copyright © Contributors to the The KindOS project
