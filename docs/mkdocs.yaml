@@ -1,6 +1,6 @@
 # Project information
 site_name: KindOS selfcookie
-repo_url: https://github.com/KindOS-Forge/kindos-forge.github.io
+repo_url: https://github.com/KindOS-Forge/selfcookie
 docs_dir: content
 
 theme:
