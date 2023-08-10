@@ -6,7 +6,7 @@ A simple Python Cookiecutter Generator.
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge)](https://github.com/ambv/black)
 
 
-[![docs](https://github.com/KindOS-Forge/selfcookie/actions/workflows/docs.yaml/badge.svg))](https://www.kindos.org/selfcookie/)
+[![docs](https://github.com/KindOS-Forge/selfcookie/actions/workflows/docs.yaml/badge.svg)](https://www.kindos.org/selfcookie/)
 ![workflow](https://github.com/KindOS-Forge/selfcookie/actions/workflows/workflow.yaml/badge.svg)
 
 [![PyPI](https://img.shields.io/pypi/v/selfcookie?logo=python&logoColor=%23cccccc)](https://pypi.org/project/selfcookie)
