@@ -6,4 +6,3 @@ pdm test
 ```
 
 Pytest with coverage supportis used for testing.
-

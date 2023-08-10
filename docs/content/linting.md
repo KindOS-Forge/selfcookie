@@ -43,6 +43,3 @@ The following checks are also performed:
 | check-xml                      | Validates XML files for well-formedness and adherence to standards.                            |
 | check-yaml                     | Validates YAML files for correct syntax and structure.                                         |
 | trailing-whitespace            | Detects and flags trailing whitespace at line ends.                                            |
-
-
-

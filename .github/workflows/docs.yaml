@@ -18,7 +18,7 @@ jobs:
         uses: pdm-project/setup-pdm@v3
 
       - name: Install dependencies
-        run: pdm sync
+        run: pdm install -G docs
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master

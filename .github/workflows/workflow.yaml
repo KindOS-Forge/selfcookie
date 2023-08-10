@@ -16,7 +16,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pdm sync
+          pdm install
 
       - name: Prepare for release
         run: |
