@@ -19,6 +19,13 @@
         "editor.tabSize": 4,
         "editor.insertSpaces": false
     },
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.detectIndentation": false,
+        "editor.autoIndent": "full",
+        "editor.trimAutoWhitespace": true
+    },
     "editor.mouseWheelZoom": true,
     "editor.minimap.enabled": false,
     "python.testing.pytestArgs": [

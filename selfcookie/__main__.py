@@ -1,6 +1,8 @@
 import typer
 
-from .package import is_available_on_pypi, is_valid_package_name
+from .clientchecks import get_gh_user, is_running_from_source
+from .package import is_available_on_github, is_available_on_pypi, is_valid_package_name
+from .status import print_success
 
 
 def main(package_name: str) -> None:
@@ -8,9 +10,23 @@ def main(package_name: str) -> None:
 
     if not is_valid_package_name(package_name):
         raise typer.BadParameter(f"{package_name} is not a valid python package name")
+    else:
+        print_success(f"{package_name} is a valid python package name")
 
     if not is_available_on_pypi(package_name):
         raise typer.BadParameter(f"{package_name} is already registered on pypi")
+    else:
+        print_success(f"{package_name} is free on pypi")
+
+    gh_user = get_gh_user()
+    print_success(f"Logged in as {gh_user}")
+    if not is_available_on_github(package_name, gh_user):
+        raise typer.BadParameter(f"{package_name} is already registered on github")
+    else:
+        print_success(f"github.com {gh_user}/{package_name} repository is available")
+
+    if is_running_from_source():
+        print_success(f"Creating {package_name} from our own source")
 
 
 if __name__ == "__main__":

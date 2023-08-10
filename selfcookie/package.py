@@ -30,3 +30,19 @@ def is_valid_package_name(name: str) -> bool:
         return False
 
     return True
+
+
+def is_available_on_github(name: str, username: str) -> bool:
+    """Check if the repository name is available on GitHub for username"""
+    url = f"https://api.github.com/repos/{username}/{name}"
+
+    try:
+        with urllib.request.urlopen(url) as response:
+            data = json.loads(response.read())
+            if data["name"] == name:
+                return False
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            pass
+
+    return True

@@ -6,7 +6,7 @@ groups = ["default", "test", "lint", "release", "docs"]
 cross_platform = true
 static_urls = false
 lock_version = "4.3"
-content_hash = "sha256:d1e74797c7d4fa390da5bcb8c832d961d24bceea3c5d7e4b47722370ae168855"
+content_hash = "sha256:1c401684177104734b1956e9317cab1d217ad5edf24b2e5306a3faa3769eb691"
 
 [[package]]
 name = "blinker"
