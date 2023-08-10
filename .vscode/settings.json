@@ -11,7 +11,8 @@
         ".pytest_cache": true,
         ".coverage": true,
         "selfcookie/version.py": true,
-        ".pdm-python": true
+        ".pdm-python": true,
+        ".venv": true
     },
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
@@ -20,5 +21,10 @@
         "editor.insertSpaces": false
     },
     "editor.mouseWheelZoom": true,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
