@@ -40,7 +40,7 @@ release=  {composite = ["build", "test", "lint"]}
 
 
 # docs generation
-doc = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview"}
+docs = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc preview"}
 
 # Dependencies below MUST be managed using:
 #  pdm add -dG group_name package_name, eg:
