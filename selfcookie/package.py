@@ -2,7 +2,7 @@ import json
 import keyword
 import re
 import urllib.request
-
+import urllib.error
 
 def is_available_on_pypi(package_name: str) -> bool:
     url = f"https://pypi.org/pypi/{package_name}/json"
