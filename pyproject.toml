@@ -26,6 +26,7 @@ tag = {shell = 'git tag {args} && git push --tags'}
 amend = "git commit --amend"
 status = "git status"
 version = "python -c \"import tomllib; f=open('pyproject.toml', 'rb'); print(tomllib.load(f)['project']['version'])\""
+clean = "python -c \"import shutil; shutil.rmtree('__pypackages__/3.11')\""
 
 selfcookie = "python -m selfcookie"
 test = "pytest --cov=selfcookie --cov-report=term-missing"
@@ -35,7 +36,7 @@ lint = "pre-commit run --all-files"
 
 # release
 build = "pdm build"
-release=  {composite = ["build", "test", "lint"]}
+release =  {composite = ["pdm install", "build", "test", "lint"]}
 
 
 # docs generation
@@ -48,7 +49,7 @@ docs = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc 
 [tool.pdm.dev-dependencies]
 test = [
     "pdm[pytest]",
-    "pytest-cov",
+    "pytest-cov>=4.1.0",
     "pytest>=7.4.0",
 ]
 lint = [
@@ -56,7 +57,7 @@ lint = [
     "mypy>=1.4.1",
 ]
 release = [
-    "jinja2>=3.1.2"
+    "pytest>=7.4.0",
 ]
 docs = [
     "mkdocs>=1.5.2",
