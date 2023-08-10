@@ -14,10 +14,14 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v3
 
+      - name: Set up PDM
+        uses: pdm-project/setup-pdm@v3
+
+      - name: Install dependencies
+        run: pdm sync
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: docs/mkdocs.yaml
-          EXTRA_PACKAGES: build-base
-          REQUIREMENTS: docs/requirements.txt
