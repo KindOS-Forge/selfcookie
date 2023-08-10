@@ -1,5 +1,7 @@
 # KindOS selfcookie
 
+Natalias is awesome! :D
+
 ## What is selfcookie?
 selfcookie is a tool that helps you create and maintain Python using templates.
 

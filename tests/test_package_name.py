@@ -11,6 +11,8 @@ def test_is_valid_package_name():
     assert is_valid_package_name("1selfcookie") is False
     # contains special character
     assert is_valid_package_name("selfcookie!") is False
+    # check if it contains an unicode char
+    assert is_valid_package_name("selfcookie😀") is False
 
 
 def test_is_available_on_pypi():
