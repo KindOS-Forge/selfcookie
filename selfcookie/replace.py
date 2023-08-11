@@ -1,40 +1,66 @@
-import fnmatch
 import os
 import shutil
 from pathlib import Path
 
+IGNORE_DIRS = [
+    "__pycache__",
+    "venv",
+    "build",
+    "dist",
+    ".git",
+    ".mypy_cache",
+    "__pypackages__",
+    ".pdm-build",
+    ".ruff_cache",
+    ".pytest_cache",
+    ".coverage",
+]
 
-def get_gitignore_patterns(gitignore_path: str) -> list[str]:
-    patterns = []
-    with open(gitignore_path, "r") as file:
-        for line in file:
-            line = line.strip()
-            if line and not line.startswith("#"):
-                patterns.append(line)
-    return patterns
 
+def copy_and_replace(src: str, dst: str, old_word: str, new_word: str) -> None:
+    """Copy a file from src to dst and replace old_word with new_word"""
 
-def copy_non_ignored_files(
-    source_directory: str,
-    target_directory: str,
-    word_to_replace: str | None = None,
-    replacement_word: str | None = None,
-) -> None:
-    gitignore_path = ".gitignore"
-    gitignore_patterns = get_gitignore_patterns(gitignore_path)
+    # Remove the dst directory if it exists
+    if os.path.exists(dst):
+        shutil.rmtree(dst)
 
-    for root, _, files in os.walk(source_directory):
+    # Copy the src directory to dst
+    shutil.copytree(src, dst, ignore=shutil.ignore_patterns(*IGNORE_DIRS))
+    # shutil.copytree(src, dst)
+
+    # Walk through all the files in the dst directory
+    for path, dirs, files in os.walk(dst):
         for file in files:
-            file_path = os.path.join(root, file)
-            relative_path = os.path.relpath(file_path, source_directory)
+            # Read the file
+            file_path = Path(path, file)
+            # print(file_path)
+            with open(file_path, "rt", encoding="utf-8") as f:
+                try:
+                    s = f.read()
+                # we don't care about non unicode files
+                except UnicodeDecodeError:
+                    continue
 
-            if not any(fnmatch.fnmatch(relative_path, pattern) for pattern in gitignore_patterns):
-                target_path = os.path.join(target_directory, relative_path)
-                os.makedirs(os.path.dirname(target_path), exist_ok=True)
-                shutil.copy2(file_path, target_path)
-                print(f"Copied {relative_path} to {target_path}")
+            # Replace the target string
+            if old_word not in s:
+                continue
+            s = s.replace(old_word, new_word)
 
-                if word_to_replace and replacement_word:
-                    data = Path(target_path).read_text()
-                    data = data.replace(word_to_replace, replacement_word)
-                    Path(target_path).write_text(data)
+            # Write the file out again
+            with open(file_path, "wt", encoding="utf-8") as f:
+                f.write(s)
+
+    # Delete the tests and selfcookie directories
+    shutil.rmtree(Path(dst, "tests"))
+    shutil.rmtree(Path(dst, "selfcookie"))
+
+    for dir in os.listdir(Path(src, "default")):
+        source_dir = Path(src, "default", dir)
+        dir = dir.replace(old_word, new_word)
+        target_dir = Path(dst, dir)
+        shutil.copytree(source_dir, target_dir)
+
+    os.chdir(dst)
+    os.system("git init")
+    os.system("pdm release")
+    # shutil.copytree(Path(src, "default"), dst)

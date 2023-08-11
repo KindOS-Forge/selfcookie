@@ -30,7 +30,7 @@ version = "python -c \"import tomllib; f=open('pyproject.toml', 'rb'); print(tom
 clean = "python -c \"import shutil; shutil.rmtree('__pypackages__/3.11')\""
 
 selfcookie = "python -m selfcookie"
-test = "pytest --cov=selfcookie --cov-report=term-missing"
+test = "pytest tests --cov=selfcookie --cov-report=term-missing"
 # linting
 lint = "pre-commit run --all-files"
 
@@ -71,11 +71,6 @@ line-length = 120
 
 [tool.isort]
 profile = "black"
-
-[tool.pytest.ini_options]
-testpaths = [
-    "tests"
-]
 
 [tool.coverage.run]
 omit = [

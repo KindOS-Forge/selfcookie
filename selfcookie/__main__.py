@@ -1,8 +1,10 @@
+import tempfile
+
 import typer
 
 from .clientchecks import get_gh_user, is_running_from_source
 from .package import is_available_on_github, is_available_on_pypi, is_valid_package_name
-from .replace import copy_non_ignored_files
+from .replace import copy_and_replace
 from .status import print_success
 
 
@@ -28,7 +30,9 @@ def main(package_name: str) -> None:
 
     if is_running_from_source():
         print_success(f"Creating {package_name} from our own source")
-        copy_non_ignored_files(".", f"/tmp/{package_name}", "selfcookie", package_name)
+        # create a tmp directory
+        tmp = tempfile.mkdtemp()
+        copy_and_replace(".", tmp, "selfcookie", package_name)
 
 
 if __name__ == "__main__":
